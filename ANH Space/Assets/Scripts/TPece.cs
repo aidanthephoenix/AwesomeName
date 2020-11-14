@@ -107,7 +107,7 @@ public class TPece : MonoBehaviour
     }
 
     [Button("RotateClockwise")]
-    void RotateClockwise()
+    public void RotateClockwise()
     {     
         if(isstopped == false)
         {
@@ -116,7 +116,7 @@ public class TPece : MonoBehaviour
     }
 
     [Button("RotateCounterclockwise")]
-    void RotateCounterclockwise()
+    public void RotateCounterclockwise()
     {
         if (isstopped == false)
         {
@@ -125,7 +125,7 @@ public class TPece : MonoBehaviour
     }
 
     [Button("MoveRight")]
-    void MoveRight()
+    public void MoveRight()
     {
         if (isstopped == false)
         {
@@ -144,7 +144,7 @@ public class TPece : MonoBehaviour
     }
 
     [Button("MoveLeft")]
-    void MoveLeft()
+    public void MoveLeft()
     {
         if (isstopped == false)
         {
