@@ -87,7 +87,7 @@ public class TPece : MonoBehaviour
             checkDistRight = heightbottom;
             checkDistLeft = heighttop;
         }
-        
+       
         if(transform.localRotation.z >= 360)
         {
             PosRef.eulerAngles = new Vector3(0, 0, PosRef.eulerAngles.z - 360);
