@@ -24,7 +24,9 @@ public class TPece : MonoBehaviour
     public float checkDistRight;
     public float checkDistLeft;
     public float checkDistDown;
-    
+    [Space]
+    public List<GameObject> children = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,19 +45,6 @@ public class TPece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(TestPress))
-        {
-            RotateClockwise();
-        }
-        if (Input.GetKeyDown(TestPress2))
-        {
-            MoveRight();
-        }
-        if (Input.GetKeyDown(TestPress3))
-        {
-            MoveLeft();
-        }
-
         if(transform.position.x != resetpoint)
         {
             transform.position = new Vector3(resetpoint, transform.position.y, transform.position.z);
@@ -92,12 +81,24 @@ public class TPece : MonoBehaviour
             PosRef.eulerAngles = new Vector3(0, 0, PosRef.eulerAngles.z + 360);
         }
 
-        if (Rigg.velocity.magnitude <= .1 && isstopped == false)
+        if ( Rigg != null && Rigg.velocity.magnitude <= .1 && isstopped == false)
         {
-            Rigg.useGravity = true;
-            Rigg.collisionDetectionMode = CollisionDetectionMode.Discrete;
+            //Rigg.useGravity = true;
+            //Rigg.collisionDetectionMode = CollisionDetectionMode.Discrete;
+            Destroy(Rigg);
             isstopped = true;
-            SpawnRef.Spawn();
+
+            for (int i = 0; i < children.Count; i++)
+            {
+                Rigidbody rr = children[i].AddComponent<Rigidbody>();
+                rr.isKinematic = true;
+                rr.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
+                                 RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            }
+            if(SpawnRef != null)
+            {
+                SpawnRef.Spawn();
+            }
         }
     }
 
