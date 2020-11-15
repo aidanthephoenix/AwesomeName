@@ -1,0 +1,5 @@
+{
+    "FSharp.suggestSdkScripts": false,
+    "FSharp.suggestGitignore": false,
+    "FSharp.fsacRuntime": "net"
+}
