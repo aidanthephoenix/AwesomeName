@@ -7,7 +7,7 @@ public class TetrisBlock : MonoBehaviour
     public Vector3 RotationPoint;
     private float PreviousTime;
     public float FallTime = 0.8f; // maybe change this to line up with the music :)
-    public static int height = 10;
+    public static int height = 20;
     public static int width = 10;
     private static Transform[,] grid = new Transform[width, height];
     
