@@ -69,7 +69,7 @@ MonoBehaviour:
   TestPress3: 97
   isstopped: 0
   fallspeed: 1
-  resetpoint: 0.5
+  resetpoint: 0
   widthRight: 1
   widthLeft: 1
   heighttop: 1
