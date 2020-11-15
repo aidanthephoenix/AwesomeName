@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TetrisPlusPlatformer.unity
+    guid: f5ef48d67fde1fd47b3189184a1a9bea
   m_configObjects: {}
