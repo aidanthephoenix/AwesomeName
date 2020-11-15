@@ -18,13 +18,10 @@ public class Tscore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tt = Physics.RaycastAll(transform.position, transform.forward, Mathf.Infinity, TileLayer);
+        tt = Physics.RaycastAll(transform.position, transform.forward, 10, TileLayer);
         if(tt.Length == AmountToScore)
         {
-            for (int i = 0; i < tt.Length; i++)
-            {
-                Destroy(tt[i].transform.gameObject);
-            }
+            Debug.Log("gottem");
         }
     }
 
