@@ -61,29 +61,24 @@ public class TPece : MonoBehaviour
             transform.position = new Vector3(resetpoint, transform.position.y, transform.position.z);
         }
 
-        print(Mathf.Round(transform.eulerAngles.z));
-
         if(Mathf.Round(transform.eulerAngles.z) == 0)
         {
-            Debug.Log("dada");
+
             checkDistRight = widthRight;
             checkDistLeft = widthLeft;       
         }
         else if (Mathf.Round(transform.eulerAngles.z) == 270)
         {
-            Debug.Log("dede");
             checkDistRight = heighttop;
             checkDistLeft = heightbottom;
         }
         else if (Mathf.Round(transform.eulerAngles.z) == 180)
         {
-            Debug.Log("dodo");
             checkDistRight = widthLeft;
             checkDistLeft = widthRight;
         }
         else if (Mathf.Round(transform.eulerAngles.z) == 90)
         {
-            Debug.Log("dudu");
             checkDistRight = heightbottom;
             checkDistLeft = heighttop;
         }
