@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool isWallSliding;
     private bool canJump;
-
+    [SerializeField]
+    private bool isCrushed;
 
     private Rigidbody rb;
     private Animator anim;
@@ -37,12 +38,15 @@ public class PlayerController : MonoBehaviour
     public float variableJumpHeightMultiplier = 0.5f;
     public float wallHopForce;
     public float wallJumpForce;
+    public float groundCheckDistance;
+    public float crushCheckDistance;
 
     public Vector2 wallHopDirection;
     public Vector2 wallJumpDirection;
 
     public Transform groundCheck;
     public Transform wallCheck;
+    public Transform crushCheck;
 
     public LayerMask whatIsGround;
 
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         ApplyMovement();
         CheckSurroundings();
+        CheckCrush();
     }
 
     private void CheckIfWallSliding()
@@ -87,9 +92,11 @@ public class PlayerController : MonoBehaviour
 
     private void CheckSurroundings()
     {
-        isGrounded = Physics.Raycast(groundCheck.position, -transform.up, whatIsGround);
+        isGrounded = Physics.Raycast(groundCheck.position, -transform.up, groundCheckDistance, whatIsGround);
 
         isTouchingWall = Physics.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+
+        isCrushed = Physics.Raycast(crushCheck.position, transform.up, crushCheckDistance, whatIsGround);
     }
 
     private void CheckIfCanJump()
@@ -231,10 +238,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void VerticalFlip()
+    {
+        transform.Rotate(180.0f, 0.0f, 0.0f);
+    }
+
     private void OnDrawGizmos()
     {
         //Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+    }
+
+    private void CheckCrush()
+    {
+        if(isCrushed && isGrounded)
+        {
+            Debug.Log("YOU DIED GIT GUD");
+        }
     }
 }
