@@ -144,7 +144,7 @@ MonoBehaviour:
   isGrounded: 0
   isTouchingWall: 0
   isWallSliding: 0
-  isHanging: 0
+  isCrushed: 0
   amountOfJumps: 1
   movementSpeed: 8
   jumpForce: 8
@@ -154,17 +154,15 @@ MonoBehaviour:
   movementForceInAir: 16
   airDragMultiplier: 0.95
   variableJumpHeightMultiplier: 0.5
-  wallHopForce: 8
-  wallJumpForce: 16
+  wallHopForce: 4
+  wallJumpForce: 8
   groundCheckDistance: 0.1
-  ceilingDistance: 0.5
-  hangingForce: 20
+  crushCheckDistance: 0
   wallHopDirection: {x: 1, y: 5}
   wallJumpDirection: {x: 1, y: 5}
   groundCheck: {fileID: 1772897342}
   wallCheck: {fileID: 820281745}
-  ceilingCheck: {fileID: 2128258630}
-  characterBody: {fileID: 8499429051036442044}
+  crushCheck: {fileID: 2128258630}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
