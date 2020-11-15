@@ -45,7 +45,21 @@ public class TPece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x != resetpoint)
+
+        if (Input.GetKeyDown(TestPress))
+        {
+            RotateClockwise();
+        }
+        if (Input.GetKeyDown(TestPress2))
+        {
+            MoveRight();
+        }
+        if (Input.GetKeyDown(TestPress3))
+        {
+            MoveLeft();
+        }
+
+        if (transform.position.x != resetpoint)
         {
             transform.position = new Vector3(resetpoint, transform.position.y, transform.position.z);
         }
